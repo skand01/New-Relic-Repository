@@ -69,11 +69,12 @@ then(function() {
                     assert.ok(body.indexOf('YOUR ACCOUNT') != -1, "Text " + "'YOUR ACCOUNT'" + " not found");
                     console.log(new Date() + '--> ' + 'Step 2: Signing-In # Successful');
                     // Getting URL for the Sparks Page
-                    $browser.findElement($driver.By.xpath("//*[@id=\"headerSection\"]/nav/ul/li[2]/ul/li[7]/a")).getAttribute("href").then(function(url) {
+                    /*$browser.findElement($driver.By.xpath("//*[@id=\"headerSection\"]/nav/ul/li[2]/ul/li[7]/a")).getAttribute("href").then(function(url) {
                         URL_STRING = url;
                         console.log("Step 3: Sparks URL: " + URL_STRING);
 
-                    })
+                    })*/
+					URL_STRING = 'https://www.marksandspencer.com/MSSparksLandingPage?langId=-24&storeId=10151';
                 })
             })
         })
@@ -93,6 +94,7 @@ then(function(){
 				console.log("Bag - Removing Item: "+ i);
 				$browser.navigate().refresh();
 				$browser.findElement($driver.By.className("btn product-item__button btn__icon btn__icon--close btn--no-border ng-isolate-scope")).click();
+				$browser.sleep(500);/** Adding this delay to investigate if 'Remove' on basket is taking longer. Please remove if not necessary */
 			}
 			console.log(new Date() + '--> ' + 'Step xx: Delete Items from Bag # Successful');
 		})
@@ -477,4 +479,10 @@ then(function(){
  * Date: 25-Jan-2018
  * Changes Made: Initial Version
  * Changed By: Subrahmanyam Surikuchi (Tata Consultancy Services Limited)
+ * 
+ * Version V1.1:
+ * Date: 23-Apr-2018
+ * Changes Made: V1.1
+ * Changed By: Subrahmanyam Surikuchi (Tata Consultancy Services Limited)
+ * Description: Step xx: Adding this delay to investigate if 'Remove' on basket is taking longer.
  */
